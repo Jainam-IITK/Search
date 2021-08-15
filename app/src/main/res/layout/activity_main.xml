@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".view.MainActivity">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/searchView"
+            app:layout_constraintBottom_toTopOf="@id/all_files_tv"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="3dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardUseCompatPadding="true"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="74dp" >
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="24dp"
+                android:background="@android:color/transparent"
+                app:elevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_gravity="center"
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="4dp"
+
+                    >
+                    <EditText
+                        android:id="@+id/search_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/manrope_medium"
+                        android:background="@android:color/transparent"
+                        android:inputType="text"
+                        android:autofillHints="Search in filed" />
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/all_files_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All Files"
+            android:layout_marginHorizontal="25dp"
+            android:fontFamily="@font/manrope_semibold"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchView"
+            app:layout_constraintBottom_toTopOf="@id/recyclerView"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            tools:listitem="@layout/search_fragment_row_item"
+            android:layout_height="0dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/searchView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/searchView"
+            app:layout_constraintTop_toBottomOf="@+id/all_files_tv" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
